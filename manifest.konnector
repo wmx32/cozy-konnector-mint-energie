@@ -7,10 +7,10 @@
   "slug": "mint-energie",
   "source": "git@github.com:wmx32/cozy-konnector-mint-energie.git",
   "editor": "William Miroux",
-  "categories": ["other"],
+  "categories": ["energy"],
   "fields": {
     "login": {
-      "type": "text"
+      "type": "email"
     },
     "password": {
       "type": "password"
