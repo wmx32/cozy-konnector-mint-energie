@@ -83,10 +83,10 @@ function authenticate(username, password) {
 // The goal of this function is to parse a HTML page wrapped by a cheerio instance
 // and return an array of JS objects which will be saved to the cozy by saveBills
 // (https://github.com/konnectors/libs/blob/master/packages/cozy-konnector-libs/docs/api.md#savebills)
-function parseDocuments($) {
+async function parseDocuments($) {
   // You can find documentation about the scrape function here:
   // https://github.com/konnectors/libs/blob/master/packages/cozy-konnector-libs/docs/api.md#scrape
-  const docs = scrape(
+  const docs = await scrape(
     $,
     {
       date: {
