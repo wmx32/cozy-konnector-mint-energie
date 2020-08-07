@@ -7,6 +7,7 @@
   "slug": "mintenergie",
   "source": "git@github.com:konnectors/mint-energie.git",
   "editor": "William Miroux",
+  "vendor_link": "https://www.mint-energie.com",
   "categories": ["energy"],
   "fields": {
     "login": {
