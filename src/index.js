@@ -7,7 +7,6 @@ const {
   requestFactory,
   scrape,
   log,
-  utils
 } = require('cozy-konnector-libs')
 const request = requestFactory({
   // The debug mode shows all the details about HTTP requests and responses. Very useful for
