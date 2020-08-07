@@ -5,7 +5,7 @@
   "language": "node",
   "icon": "icon.svg",
   "slug": "mintenergie",
-  "source": "git@github.com:wmx32/cozy-konnector-mint-energie.git",
+  "source": "git@github.com:konnectors/mint-energie.git",
   "editor": "William Miroux",
   "categories": ["energy"],
   "fields": {
