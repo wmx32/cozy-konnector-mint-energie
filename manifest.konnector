@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.0.0",
   "name": "Mint Energie",
   "type": "konnector",
   "language": "node",
@@ -8,9 +8,7 @@
   "source": "git@github.com:konnectors/mint-energie.git",
   "editor": "William Miroux",
   "vendor_link": "https://www.mint-energie.com",
-  "categories": [
-    "energy"
-  ],
+  "categories": ["energy"],
   "fields": {
     "login": {
       "type": "email"
@@ -47,10 +45,7 @@
     "name": "William Miroux",
     "url": "https://github.com/wmx32/"
   },
-  "langs": [
-    "fr",
-    "en"
-  ],
+  "langs": ["fr", "en"],
   "locales": {
     "fr": {
       "short_description": "Récupère la liste des factures Mint Energie",
