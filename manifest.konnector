@@ -1,12 +1,13 @@
 {
   "version": "1.0.0",
-  "name": "Connector to Mint Energie",
+  "name": "Mint Energie",
   "type": "konnector",
   "language": "node",
   "icon": "icon.svg",
-  "slug": "mint-energie",
-  "source": "git@github.com:wmx32/cozy-konnector-mint-energie.git",
+  "slug": "mintenergie",
+  "source": "git@github.com:konnectors/mint-energie.git",
   "editor": "William Miroux",
+  "vendor_link": "https://www.mint-energie.com",
   "categories": ["energy"],
   "fields": {
     "login": {
@@ -47,8 +48,8 @@
   "langs": ["fr", "en"],
   "locales": {
     "fr": {
-      "short_description": "Récupère la liste des facture Mint Energie",
-      "long_description": "Récupère la liste des facture Mint Energie",
+      "short_description": "Récupère la liste des factures Mint Energie",
+      "long_description": "Récupère la liste des factures Mint Energie",
       "permissions": {
         "bank operations": {
           "description": "Utilisé pour relier les factures à des operations bancaires"
