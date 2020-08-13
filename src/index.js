@@ -6,7 +6,7 @@ const {
   BaseKonnector,
   requestFactory,
   scrape,
-  log,
+  log
 } = require('cozy-konnector-libs')
 const request = requestFactory({
   // The debug mode shows all the details about HTTP requests and responses. Very useful for
@@ -60,7 +60,11 @@ function authenticate(username, password) {
   return this.signin({
     url: `${baseUrl}/Pages/Connexion/connexion.aspx`,
     formSelector: 'form',
-    formData: { TB_Login: username, TB_Password: password, BT_Connexion: 'se connecter' },
+    formData: {
+      TB_Login: username,
+      TB_Password: password,
+      BT_Connexion: 'se connecter'
+    },
     // The validate function will check if the login request was a success. Every website has a
     // different way to respond: HTTP status code, error message in HTML ($), HTTP redirection
     // (fullResponse.request.uri.href)...
@@ -109,13 +113,10 @@ async function parseDocuments($) {
   )
   return docs.map(doc => ({
     ...doc,
-    // The saveBills function needs a date field
-    // even if it is a little artificial here (these are not real bills)
-    date: Date(`${doc.date}`),
     currency: 'EUR',
-    filename: `${doc.date}_${VENDOR}_${doc.amount.toFixed(
-      2
-    )}EUR${doc.vendorRef ? '_' + doc.vendorRef : ''}.pdf`,
+    filename: `${extractStringDate(doc.date)}_${VENDOR}_${doc.amount.toFixed(2)}EUR${
+      doc.vendorRef ? '_' + doc.vendorRef : ''
+    }.pdf`,
     vendor: VENDOR
   }))
 }
@@ -126,6 +127,16 @@ function normalizePrice(price) {
 }
 
 function toEPoch(date) {
-  let d = date.split('/');
-  return d[2] + '-' + d[1] + '-' + d[0] + 'T12:00:00';
+  let d = date.split('/')
+  return new Date(d[2] + '-' + d[1] + '-' + d[0] + 'T12:00:00')
+}
+
+// Convert Date object to a string like '2020-06-17'
+function extractStringDate(date) {
+  // We need to add leading 0 to month and day
+  const month = ('00' + (date.getMonth() + 1)).slice(-2) // January = 0
+  const day = ('00' + date.getDate()).slice(-2)
+  return `${date.getFullYear()}`
+    + `-${month}`
+    + `-${day}`
 }
