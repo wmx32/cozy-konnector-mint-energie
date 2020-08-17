@@ -114,9 +114,9 @@ async function parseDocuments($) {
   return docs.map(doc => ({
     ...doc,
     currency: 'EUR',
-    filename: `${extractStringDate(doc.date)}_${VENDOR}_${doc.amount.toFixed(2)}EUR${
-      doc.vendorRef ? '_' + doc.vendorRef : ''
-    }.pdf`,
+    filename: `${extractStringDate(doc.date)}_${VENDOR}_${doc.amount.toFixed(
+      2
+    )}EUR${doc.vendorRef ? '_' + doc.vendorRef : ''}.pdf`,
     vendor: VENDOR
   }))
 }
@@ -136,7 +136,5 @@ function extractStringDate(date) {
   // We need to add leading 0 to month and day
   const month = ('00' + (date.getMonth() + 1)).slice(-2) // January = 0
   const day = ('00' + date.getDate()).slice(-2)
-  return `${date.getFullYear()}`
-    + `-${month}`
-    + `-${day}`
+  return `${date.getFullYear()}` + `-${month}` + `-${day}`
 }
